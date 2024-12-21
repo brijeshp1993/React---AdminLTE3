@@ -29,15 +29,32 @@ export const registerUser= createAsyncThunk('auth/registeruser',async(userData,{
   }
 })
 
+//const loginUser = JSON.parse(localStorage.getItem('user'));
+
+const restoreAuthState = () => {
+//  const loginuser = JSON.parse(localStorage.getItem('user'));
+  const loginuser = JSON.parse(localStorage.getItem('user'));
+
+
+  if (loginuser) {
+    return { user: loginuser,
+      isLoading: false,
+      error: null,
+      isRegister:false };
+  }
+  return {
+    user:  null,
+    isLoading: false,
+    error: null,
+    isRegister:false
+  };
+};
+
+const initialState = restoreAuthState();
 
   const authSlice = createSlice({
     name: 'auth',
-    initialState: {
-      user: null,
-      isLoading: false,
-      error: null,
-      isRegister:false
-    },
+    initialState,
     reducers: {
       logout: (state) => {
         state.user = null;

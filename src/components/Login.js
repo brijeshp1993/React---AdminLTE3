@@ -23,6 +23,8 @@ const Login = () => {
   useEffect(()=>{
     if(user!=null)
       {
+        localStorage.setItem('user', JSON.stringify(user));
+
         console.log('redirect to login')
         navigate("/");
       }  },[user])

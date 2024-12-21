@@ -6,7 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import store from './store/store';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'admin-lte/dist/css/adminlte.min.css';
 
+// Import jQuery and Bootstrap JS
+import $ from 'jquery';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'admin-lte/dist/js/adminlte.min.js';
+
+// Assign jQuery to the global `window` object
+window.$ = $;
+window.jQuery = $;
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
